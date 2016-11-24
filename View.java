@@ -3,10 +3,13 @@ package xonix;
 import xonix.viewclasses.MapView;
 import xonix.viewclasses.ScoreView;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class View extends javax.swing.JFrame {
 
+    public JMenuItem addMonsterBall;
+    public JMenuItem addTicket;
     private final javax.swing.JPanel all;
     private final ScoreView score;
     private final MapView map;
@@ -50,6 +53,7 @@ public class View extends javax.swing.JFrame {
         javax.swing.JMenu menu;
         javax.swing.JMenuItem menuItem;
         menuBar = new javax.swing.JMenuBar ();
+        /*
         menu = new javax.swing.JMenu ("File");
         menuItem = new javax.swing.JMenuItem ("New");
         menu.add (menuItem);
@@ -63,16 +67,13 @@ public class View extends javax.swing.JFrame {
         menu.add (menuItem);
         menuItem = new javax.swing.JMenuItem ("Quit");
         menu.add (menuItem);
-        menuBar.add (menu);
+        menuBar.add (menu);*/
+
         menu = new javax.swing.JMenu ("Command");
-        menuItem = new javax.swing.JMenuItem ("Add bomb");
-        menu.add (menuItem);
-        menuItem = new javax.swing.JMenuItem ("Add smartbomb");
-        menu.add (menuItem);
-        menuItem = new javax.swing.JMenuItem ("Add timeticket");
-        menu.add (menuItem);
-        menuItem = new javax.swing.JMenuItem ("Switch bombstrategies ");
-        menu.add (menuItem);
+        addMonsterBall = new javax.swing.JMenuItem("Add Monsterball");
+        menu.add(addMonsterBall);
+        addTicket = new javax.swing.JMenuItem("Add TimeTicket");
+        menu.add (addTicket);
         menuBar.add (menu);
         this.setJMenuBar (menuBar);
     }
