@@ -151,6 +151,9 @@ public class Model {
      * */
     public Random getRandom() { return random; }
 
+    /**
+     * Resets the state of the model
+     * */
     void reset ()
     {
         fieldSquares.reset ();

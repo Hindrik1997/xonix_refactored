@@ -2,6 +2,9 @@ package xonix.dataclasses;
 
 import xonix.constants.Constants;
 
+/**
+ * Object representing state of the current game
+ * */
 public class State
 {
     private int level;
@@ -12,21 +15,36 @@ public class State
     private int tTime;
     private boolean gameOver;
 
+    /**
+     * Constructor, resets to default
+     * */
     public State ()
     {
         this.reset ();
     }
 
+    /**
+     * Sets level to level 1
+     * */
     public void reset ()
     {
         setLevel (1);
     }
 
+    /**
+     * Returns current level
+     * @return current level
+     * */
     public int getLevel ()
     {
         return level;
     }
 
+    /**
+     * Sets current level based on the int and some constants
+     * @see Constants
+     * @param level int indicating the new level
+     * */
     public void setLevel (int level)
     {
         this.level = level;
@@ -38,11 +56,19 @@ public class State
         this.gameOver = false;
     }
 
+    /**
+     * Returns the clock float value
+     * @return value
+     * */
     public float getClock ()
     {
         return clock;
     }
 
+    /**
+     * Sets the clock value
+     * @param clock value
+     * */
     public void setClock (float clock)
     {
         this.clock = clock;
@@ -53,21 +79,36 @@ public class State
         }
     }
 
+    /**
+     * Adds to the current clock value
+     * @param clock delta time to add
+     * */
     public void addClock (float clock)
     {
         setClock (this.clock + clock);
     }
 
+    /**
+     * Returns amount of lives
+     * @return amount of lives
+     * */
     public int getLives ()
     {
         return lives;
     }
 
+    /**
+     * Sets lives amount
+     * @param lives new live amount
+     * */
     public void setLives (int lives)
     {
         this.lives = lives;
     }
 
+    /**
+     * decreases live amount
+     * */
     public void decLives ()
     {
         setLives (getLives () - 1);
@@ -75,11 +116,19 @@ public class State
             gameOver = true;
     }
 
+    /**
+     * Returns current score
+     * */
     public int getcscore ()
     {
         return cscore;
     }
 
+
+    /**
+     * Sets the score
+     * @param cscore new score
+     * */
     public void setcscore (int cscore)
     {
         this.cscore = cscore;
@@ -87,31 +136,55 @@ public class State
             setLevel (level + 1);
     }
 
+    /**
+     * Adds to the current score
+     * @param cscore delta score to add
+     * */
     public void addcscore (int cscore)
     {
         setcscore (this.cscore + cscore);
     }
 
+    /**
+     * Returns the rscore value
+     * @return value
+     * */
     public int getrscore ()
     {
         return rscore;
     }
 
+    /**
+     * Sets rscore value
+     * @param rscore value to set
+     * */
     public void setrscore (int rscore)
     {
         this.rscore = rscore;
     }
 
+    /**
+     * Return bool gameOver
+     * @return bool indicating whether the game is over
+     * */
     public boolean isGameOver ()
     {
         return gameOver;
     }
 
+    /**
+     * Sets the bool wether the game is over
+     * @param gameOver value
+     * */
     public void setGameOver (boolean gameOver)
     {
         this.gameOver = gameOver;
     }
 
+    /**
+     * Returns string representation of the object
+     * @return string value
+     * */
     @Override
     public String toString ()
     {

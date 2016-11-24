@@ -1,5 +1,8 @@
 package xonix.constants;
 
+/**
+ * Class containing all application constants
+ * */
 public class Constants {
 
     public static final int SQUARE_LENGTH = 102;

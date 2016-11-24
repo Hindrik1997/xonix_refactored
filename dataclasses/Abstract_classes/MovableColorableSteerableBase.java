@@ -5,30 +5,57 @@ import xonix.dataclasses.Interfaces.ISteerable;
 
 import java.awt.geom.Point2D;
 
+/**
+ * Abstract class which implements multiple interfaces.
+ * Provides default getters and setters for color, height, moving and steering
+ * @see MovableColorableBase
+ * @see ISteerable
+ * */
 public abstract class MovableColorableSteerableBase extends MovableColorableBase implements ISteerable {
     protected int heading;
     protected float speed;
 
+    /**
+     * Implements the getter for the heading variable
+     * @return value
+     * */
     @Override
     public int getHeading() {
         return heading;
     }
 
+    /**
+     * Implements the setter for the heading variable
+     * @param heading value
+     * */
     @Override
     public void setHeading(int heading) {
         this.heading = heading;
     }
 
+    /**
+     * Implements the setter for the speed variable
+     * @param speed value
+     * */
     @Override
     public void setSpeed(float speed) {
         this.speed = speed;
     }
 
+    /**
+     * Implements the getter for the speed variable
+     * @return value
+     * */
     @Override
     public float getSpeed() {
         return speed;
     }
 
+    /**
+     * Calculates the new position based on the speed,height and heading
+     * @param delta current delta time
+     * @return returns Point2D representing the new position
+     * */
     @Override
     public Point2D.Float nextLocation(float delta) {
         double radians = Math.toRadians (getHeading ());

@@ -3,9 +3,20 @@ package xonix.dataclasses;
 import xonix.constants.Constants;
 import xonix.dataclasses.Abstract_classes.MovableColorableSteerableBase;
 
+/**
+ * Class representing a monster in the game
+ * */
 public class MonsterBall extends MovableColorableSteerableBase
 {
 
+    /**
+     * Constructor for the monster ball
+     * @param heading heading of the ball
+     * @param color color of the ball
+     * @param loc location of the ball
+     * @param radius radius of the ball
+     * @param speed speed of the ball
+     * */
     public MonsterBall (final java.awt.geom.Point2D.Float loc, final java.awt.Color color, final int heading, final float speed, final int radius)
     {
         setLocation (loc);
@@ -16,6 +27,11 @@ public class MonsterBall extends MovableColorableSteerableBase
         setHeight(radius);
     }
 
+    /**
+     * Override
+     * @see xonix.dataclasses.Interfaces.ISteerable
+     * */
+    @Override
     public boolean changeLocation (FieldSquares fss, State state, float delta)
     {
         java.awt.geom.Point2D.Float prev = getLocation ();
@@ -40,6 +56,10 @@ public class MonsterBall extends MovableColorableSteerableBase
         return false;
     }
 
+    /**
+     * Returns string representation of the object
+     * @return string represantation
+     * */
     @Override
     public String toString ()
     {

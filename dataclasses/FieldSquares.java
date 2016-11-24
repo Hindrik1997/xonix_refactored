@@ -5,11 +5,17 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
+/**
+ * Class representing a field of squares
+ * */
 public class FieldSquares
 {
     private final FieldSquare[][] fieldSquares;
     private final Color[][] colors;
 
+    /**
+     * Sets up the field of squares
+     * */
     public FieldSquares ()
     {
         fieldSquares = new FieldSquare[Constants.SQUARE_LENGTH][Constants.SQUARE_LENGTH];
@@ -17,16 +23,30 @@ public class FieldSquares
         colors = new Color[Constants.SQUARE_LENGTH][Constants.SQUARE_LENGTH];
     }
 
+    /**
+     * Retrieves item at specified indices
+     * @param i width index
+     * @param j height index
+     * @return FieldSquare at indices
+     * */
     public FieldSquare elementAt (int i, int j)
     {
         return fieldSquares[i][j];
     }
 
+    /**
+     * Resets the field of squares
+     * */
     public void reset ()
     {
         setFields (Constants.PLAYER_COLOR, Constants.SQUARE_COLOR);
     }
 
+    /**
+     * Sets the color of fields
+     * @param inner inner squares their color
+     * @param edge edge squares their color
+     * */
     private void setFields (Color edge, Color inner)
     {
         for (int y = 0; y < Constants.SQUARE_LENGTH; y ++)
@@ -37,12 +57,20 @@ public class FieldSquares
                     fieldSquares[x][y] = new FieldSquare (new Point2D.Float (x * Constants.SQUARE_UNITS, y * Constants.SQUARE_UNITS), inner, Constants.SQUARE_UNITS);
     }
 
+    /**
+     * Fils squares
+     * @return number of filled squares
+     * */
     public int fillSquares ()
     {
         copyColors ();
         return lineToPlayerColor () + fillAreas ();
     }
 
+    /**
+     * Returns number of squares in a line towards the player
+     * @return number of squares in a line towards the player
+     * */
     private int lineToPlayerColor ()
     {
         int count = 0;
@@ -56,6 +84,9 @@ public class FieldSquares
         return count;
     }
 
+    /**
+     * Copies colors to the color array
+     * */
     private void copyColors ()
     {
         for (int i = 0; i < Constants.SQUARE_LENGTH; i ++)
@@ -63,18 +94,34 @@ public class FieldSquares
                 colors[i][j] = fieldSquares[i][j].getColor ();
     }
 
+
+    /**
+     * Class representing point in 3D space
+     * */
+    private class Point3D
+    {
+        private int x, y, z;
+
+        /**
+         * Constructor for the point3D
+         * @param x x value
+         * @param y y value
+         * @param z value
+         * */
+        private Point3D (int x, int y, int z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+    }
+
+    /**
+     * Fills areas
+     * @return size of filled area
+     * */
     private int fillAreas ()
     {
-        class Point3D
-        {
-            private int x, y, z;
-            private Point3D (int x, int y, int z)
-            {
-                this.x = x;
-                this.y = y;
-                this.z = z;
-            }
-        }
         ArrayList<Point3D> areas = new ArrayList<> ();
         for (int x = 1; x < Constants.SQUARE_LENGTH - 1; x ++)
             for (int y = 1; y < Constants.SQUARE_LENGTH - 1; y ++)
@@ -99,6 +146,11 @@ public class FieldSquares
         return size;
     }
 
+    /**
+     * Calculates size of area of same color around x,y
+     * @param x x coordinate
+     * @param y y coordinate
+     * */
     private int areaSize (int x, int y)
     {
         int size = 0;
@@ -140,6 +192,11 @@ public class FieldSquares
         return size;
     }
 
+    /**
+     * Floodfils around x,y
+     * @param x x value
+     * @param y y value
+     * */
     private void floodfill (int x, int y)
     {
         if (elementAt (x, y).getColor () == Constants.PLAYER_COLOR)

@@ -5,6 +5,13 @@ import xonix.dataclasses.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+
+/**
+ * Controller class that manages the Model and the View and provides a way to update/modify them
+ * Part of the MVC Pattern
+ * @see Model
+ * @see View
+ * */
 public class Controller {
 
     private Model model;

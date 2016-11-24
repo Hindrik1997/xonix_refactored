@@ -5,6 +5,9 @@ import xonix.Model;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Represents the part of the window which shows the scores to the player
+ * */
 public class ScoreView extends javax.swing.JPanel
 {
     final private javax.swing.JLabel level;
@@ -13,6 +16,11 @@ public class ScoreView extends javax.swing.JPanel
     final private javax.swing.JLabel cscore;
     final private javax.swing.JLabel rscore;
 
+    /**
+     * Constructor of the class that keeps the counters on the screen
+     * Part of the View class
+     * @see xonix.View
+     * */
     public ScoreView ()
     {
         this.setLayout (new javax.swing.BoxLayout (this, javax.swing.BoxLayout.Y_AXIS));
@@ -48,6 +56,11 @@ public class ScoreView extends javax.swing.JPanel
         this.add(Horiz1);
     }
 
+    /**
+     * Update function of the score view
+     * Updates the scores from the supplied model
+     * @param model input model from which the scores will be taken
+     * */
     public void update (Model model)
     {
         this.level.setText (" Current level: " + model.getState().getLevel ());

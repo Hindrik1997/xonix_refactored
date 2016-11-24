@@ -6,6 +6,14 @@ import xonix.viewclasses.ScoreView;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Represents the window on the screen and visualizes the Model
+ * Part of the MVC pattern
+ * @see Controller
+ * @see Model
+ * @see MapView
+ * @see ScoreView
+ * */
 public class View extends javax.swing.JFrame {
 
     public JMenuItem addMonsterBall;

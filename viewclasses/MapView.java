@@ -6,16 +6,29 @@ import xonix.dataclasses.MonsterBall;
 import xonix.dataclasses.TimeTicket;
 import xonix.dataclasses.FieldSquare;
 
+/**
+ * Represents the map on screen
+ * */
 public class MapView extends javax.swing.JPanel
 {
     private Model lastSetModel = null;
 
 
+    /**
+     * Constructor for the MapView class. Provides the view of the game field on the screen.
+     * Is part of the View class
+     * @see xonix.View
+     * */
     public MapView ()
     {
         super ();
     }
 
+
+    /**
+     * Override of the paint event of the JPanel
+     * Draws the actual map on the panel
+     * */
     @Override
     public void paint (java.awt.Graphics g)
     {
@@ -65,6 +78,10 @@ public class MapView extends javax.swing.JPanel
         g.fillRect ((int) lastSetModel.getCar().getLocation ().x, (int) lastSetModel.getCar().getLocation ().y, lastSetModel.getCar().getWidth (), lastSetModel.getCar().getHeight ());
     }
 
+    /**
+     * Updates the model from which the paint function will update
+     * @param model model which will be used for painting
+     * */
     public void update (Model model)
     {
         lastSetModel = model;
