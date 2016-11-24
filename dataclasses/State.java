@@ -1,5 +1,7 @@
 package xonix.dataclasses;
 
+import xonix.constants.Constants;
+
 public class State
 {
     private int level;
@@ -28,11 +30,11 @@ public class State
     public void setLevel (int level)
     {
         this.level = level;
-        this.clock = (6 - level) * 2;
-        this.lives = 3;
-        this.cscore = 0;
-        this.rscore = (40 + level * 10) * 100;
-        this.tTime = level - 1;
+        this.clock = (6 - level) * 10;
+        this.lives = Constants.LIVES_START;
+        this.cscore = Constants.CSCORE_START;
+        this.rscore = Constants.RSCORE_START;
+        this.tTime = level * 2 - 1;
         this.gameOver = false;
     }
 

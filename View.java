@@ -3,6 +3,8 @@ package xonix;
 import xonix.viewclasses.MapView;
 import xonix.viewclasses.ScoreView;
 
+import java.awt.*;
+
 public class View extends javax.swing.JFrame {
 
     private final javax.swing.JPanel all;
@@ -20,20 +22,21 @@ public class View extends javax.swing.JFrame {
     public View ()
     {
         this.setTitle ("Xonix Game");
-        all = new javax.swing.JPanel ();
+        all = new javax.swing.JPanel();
         all.setLayout (new javax.swing.BoxLayout (all, javax.swing.BoxLayout.Y_AXIS));
-        all.setBorder (new javax.swing.border.EmptyBorder (0, 30, 0, 30));
         score = new ScoreView ();
         all.add (score);
+        all.setBackground(new Color(0.1f,0.1f,0.1f));
         map = new MapView ();
-        map.setAlignmentX (CENTER_ALIGNMENT);
+        all.setBorder(new javax.swing.border.EmptyBorder(0,40,0,40));
+        map.setBackground(new Color(0.1f,0.1f,0.1f));
         all.add (map);
         this.add (all);
         this.setMenu ();
         this.pack ();
         this.setLocationRelativeTo (null);
         this.setDefaultCloseOperation (javax.swing.JFrame.EXIT_ON_CLOSE);
-        this.setSize (new java.awt.Dimension (630, 610));
+        this.setSize (new java.awt.Dimension (600, 600));
         this.setResizable (false);
         this.setVisible (true);
     }
