@@ -1,10 +1,9 @@
 package xonix.dataclasses;
 
-public class TimeTicket
-{
+import xonix.dataclasses.Abstract_classes.MovableColorableBase;
 
-    private java.awt.geom.Point2D.Float loc;
-    private java.awt.Color color;
+public class TimeTicket extends MovableColorableBase
+{
     private float width;
     private float height;
     private int seconds;
@@ -16,26 +15,6 @@ public class TimeTicket
         setWidth (width);
         setHeight (height);
         setSeconds (seconds);
-    }
-
-    public java.awt.geom.Point2D.Float getLocation ()
-    {
-        return loc;
-    }
-
-    public void setLocation (java.awt.geom.Point2D.Float loc)
-    {
-        this.loc = loc;
-    }
-
-    public java.awt.Color getColor ()
-    {
-        return color;
-    }
-
-    public void setColor (final java.awt.Color color)
-    {
-        this.color = color;
     }
 
     public float getWidth ()
