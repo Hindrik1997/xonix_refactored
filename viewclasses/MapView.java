@@ -32,8 +32,8 @@ public class MapView extends javax.swing.JPanel
                 g.fillRect (
                         (int) fs.getLocation ().x,
                         (int) fs.getLocation ().y,
-                        (int) fs.getSize (),
-                        (int) fs.getSize ()
+                        fs.getWidth(),
+                        fs.getHeight()
                 );
             }
 
@@ -52,7 +52,7 @@ public class MapView extends javax.swing.JPanel
         for (MonsterBall mb : lastSetModel.getMonsterBalls())
         {
             g.setColor (mb.getColor ());
-            g.fillArc ((int) mb.getLocation ().x, (int) (int) mb.getLocation ().y, (int) mb.getRadius (), (int) mb.getRadius (), 0, 360);
+            g.fillArc ((int) mb.getLocation ().x, (int) mb.getLocation ().y, mb.getWidth(), mb.getHeight(), 0, 360);
         }
 
         for (TimeTicket tt : lastSetModel.getTimeTickets())

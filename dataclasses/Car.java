@@ -5,9 +5,6 @@ import xonix.dataclasses.Abstract_classes.MovableColorableSteerableBase;
 
 public class Car extends MovableColorableSteerableBase
 {
-    private int width;
-    private int height;
-
     public Car (final java.awt.geom.Point2D.Float loc, final java.awt.Color color, final int heading, final int speed, final int width, final int height)
     {
         setLocation (loc);
@@ -26,27 +23,6 @@ public class Car extends MovableColorableSteerableBase
         setSpeed (50);
         setWidth (Constants.SQUARE_UNITS);
         setHeight (Constants.SQUARE_UNITS);
-    }
-
-
-    public int getWidth ()
-    {
-        return width;
-    }
-
-    public final void setWidth (final int width)
-    {
-        this.width = width;
-    }
-
-    public int getHeight ()
-    {
-        return height;
-    }
-
-    public final void setHeight (final int height)
-    {
-        this.height = height;
     }
 
     public boolean changeLocation (FieldSquares fss, State state, float delta)

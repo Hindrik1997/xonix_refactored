@@ -5,25 +5,15 @@ import xonix.dataclasses.Abstract_classes.MovableColorableSteerableBase;
 
 public class MonsterBall extends MovableColorableSteerableBase
 {
-    private float radius;
 
-    public MonsterBall (final java.awt.geom.Point2D.Float loc, final java.awt.Color color, final int heading, final float speed, final float radius)
+    public MonsterBall (final java.awt.geom.Point2D.Float loc, final java.awt.Color color, final int heading, final float speed, final int radius)
     {
         setLocation (loc);
         setColor (color);
         setHeading (heading);
         setSpeed (speed);
-        this.setRadius (radius);
-    }
-
-    public float getRadius ()
-    {
-        return radius;
-    }
-
-    public void setRadius (float radius)
-    {
-        this.radius = radius;
+        setWidth(radius);
+        setHeight(radius);
     }
 
     public boolean changeLocation (FieldSquares fss, State state, float delta)
@@ -53,6 +43,6 @@ public class MonsterBall extends MovableColorableSteerableBase
     @Override
     public String toString ()
     {
-        return "loc=" + loc.x + "," + loc.y + " color=[" + color.getRed () + "," + color.getGreen () + "," + color.getBlue () + "]" + " heading=" + heading + " speed=" + speed + " radius=" + radius;
+        return "loc=" + loc.x + "," + loc.y + " color=[" + color.getRed () + "," + color.getGreen () + "," + color.getBlue () + "]" + " heading=" + heading + " speed=" + speed + " radius=" + getWidth();
     }
 }

@@ -6,7 +6,7 @@ import xonix.dataclasses.Interfaces.IMoveable;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-public abstract class MovableColorableBase implements IColorable,IMoveable {
+public abstract class MovableColorableBase extends HeightWidthBase implements IColorable,IMoveable {
 
     protected Color color;
     protected Point2D.Float loc;
