@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Model {
+public class Model extends java.util.Observable {
 
     private final FieldSquares fieldSquares;
     private ArrayList<MonsterBall> monsterBalls;
@@ -37,6 +37,8 @@ public class Model {
 
         createMonsterballs();
         createTimeTickets();
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
@@ -56,6 +58,8 @@ public class Model {
                     random.nextInt (360),
                     random.nextFloat () * 100 + 10, 6)
             );
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
@@ -75,6 +79,8 @@ public class Model {
                                        random.nextInt (Constants.SQUARE_LENGTH * Constants.SQUARE_UNITS - 30) + 15),
                                         Constants.TICKET_COLOR, Constants.TTIME_START, 7, 7)
             );
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
@@ -114,6 +120,8 @@ public class Model {
      * */
     public void setMonsterBalls(ArrayList<MonsterBall> monsterBalls) {
         this.monsterBalls = monsterBalls;
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
@@ -121,6 +129,8 @@ public class Model {
     * */
     public void setTimeTickets(ArrayList<TimeTicket> timeTickets) {
         this.timeTickets = timeTickets;
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
@@ -128,6 +138,8 @@ public class Model {
      * */
     public void setState(State state) {
         this.state = state;
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
@@ -143,13 +155,17 @@ public class Model {
      * */
     public void setCar(Car car) {
         this.car = car;
+        setChanged();
+        notifyObservers(this);
     }
 
     /**
      * Returns the random field of the Model
      * @return random of this instance
      * */
-    public Random getRandom() { return random; }
+    public Random getRandom() {
+        return random;
+    }
 
     /**
      * Resets the state of the model
@@ -161,5 +177,7 @@ public class Model {
         createTimeTickets ();
         car.reset ();
         state.reset ();
+        setChanged();
+        notifyObservers(this);
     }
 }

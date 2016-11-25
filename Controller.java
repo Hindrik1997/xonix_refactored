@@ -28,6 +28,7 @@ public class Controller {
     {
         this.model = model;
         this.view = view;
+        this.model.addObserver(this.view);
     }
 
     /**
@@ -109,5 +110,21 @@ public class Controller {
      * */
     public Random getRandom() { return model.getRandom(); }
 
+    /**
+     * Returns the view of the application
+     * @return view
+     * */
+    public View getView()
+    {
+        return view;
+    }
+    /**
+     * Returns the model of the application
+     * @return model
+     */
+    public Model getModel()
+    {
+        return model;
+    }
 
 }
