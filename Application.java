@@ -1,7 +1,5 @@
 package xonix;
 
-import xonix.Commands.AddMonsterBall;
-import xonix.Commands.AddTimeTicket;
 import xonix.Commands.TimeTickUpdate;
 import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;

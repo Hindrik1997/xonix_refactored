@@ -71,7 +71,7 @@ public class MapView extends javax.swing.JPanel
         for (TimeTicket tt : lastSetModel.getTimeTickets())
         {
             g.setColor (tt.getColor ());
-            g.fillRect ((int) tt.getLocation ().x, (int) tt.getLocation ().y, (int) tt.getWidth (), (int) tt.getHeight ());
+            g.fillRect ((int) tt.getLocation ().x, (int) tt.getLocation ().y, tt.getWidth (), tt.getHeight ());
         }
 
         g.setColor (lastSetModel.getCar().getColor ());

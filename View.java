@@ -66,7 +66,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
     {
         javax.swing.JMenuBar menuBar;
         javax.swing.JMenu menu;
-        javax.swing.JMenuItem menuItem;
+        //javax.swing.JMenuItem menuItem;
         menuBar = new javax.swing.JMenuBar ();
         menu = new javax.swing.JMenu ("File");
         /*
