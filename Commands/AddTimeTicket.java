@@ -6,7 +6,14 @@ import xonix.dataclasses.TimeTicket;
 
 import java.awt.event.ActionEvent;
 
+/**
+ * Adds time ticket to the game
+ * */
 public class AddTimeTicket extends Command {
+
+    /**
+     * Adds time ticket to the game
+     * */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         Application.getInstance().getController().getModel().getTimeTickets().add (

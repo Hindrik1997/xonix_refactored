@@ -5,6 +5,9 @@ import xonix.Application;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 
+/**
+ * Quits the application
+ * */
 public class QuitGame extends Command {
 
     /**

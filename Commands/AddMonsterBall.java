@@ -6,7 +6,14 @@ import xonix.dataclasses.MonsterBall;
 
 import java.awt.event.ActionEvent;
 
+/**
+ * Adds a monster ball to the game
+ * */
 public class AddMonsterBall extends Command {
+
+    /**
+     * Adds monsterball to the game
+     * */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         Application.getInstance().getController().getModel().getMonsterBalls().add (

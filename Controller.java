@@ -111,7 +111,7 @@ public class Controller {
     public Random getRandom() { return model.getRandom(); }
 
     /**
-     * Returns the view of the application
+     * Returns the view of the controller
      * @return view
      * */
     public View getView()
@@ -119,7 +119,7 @@ public class Controller {
         return view;
     }
     /**
-     * Returns the model of the application
+     * Returns the model of the controller
      * @return model
      */
     public Model getModel()

@@ -19,8 +19,12 @@ import java.util.Observable;
  * */
 public class View extends javax.swing.JFrame implements java.util.Observer {
 
-    public JMenuItem addMonsterBall;
-    public JMenuItem addTicket;
+    private JMenuItem addMonsterBall;
+    private JMenuItem addTicket;
+    private JMenuItem quitGame;
+    private JMenuItem showAbout;
+
+
     private final javax.swing.JPanel all;
     private final ScoreView score;
     private final MapView map;
@@ -33,7 +37,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
      * @see Model
      * @see View#update(Model)
      * */
-    public View ()
+    View ()
     {
         this.setTitle ("Xonix Game");
         all = new javax.swing.JPanel();
@@ -64,8 +68,8 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
         javax.swing.JMenu menu;
         javax.swing.JMenuItem menuItem;
         menuBar = new javax.swing.JMenuBar ();
-        /*
         menu = new javax.swing.JMenu ("File");
+        /*
         menuItem = new javax.swing.JMenuItem ("New");
         menu.add (menuItem);
         menuItem = new javax.swing.JMenuItem ("Save");
@@ -74,12 +78,14 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
         menu.add (menuItem);
         menuItem = new javax.swing.JMenuItem ("Sound");
         menu.add (menuItem);
-        menuItem = new javax.swing.JMenuItem ("About");
-        menu.add (menuItem);
-        menuItem = new javax.swing.JMenuItem ("Quit");
-        menu.add (menuItem);
-        menuBar.add (menu);
         */
+
+        showAbout = new javax.swing.JMenuItem ("About");
+        menu.add (showAbout);
+        quitGame = new javax.swing.JMenuItem ("Quit");
+        menu.add (quitGame);
+        menuBar.add (menu);
+
         menu = new javax.swing.JMenu ("Command");
         addMonsterBall = new javax.swing.JMenuItem("Add Monsterball");
         menu.add(addMonsterBall);
@@ -124,6 +130,13 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
 
     }
 
+    void setupDropDowns()
+    {
+        addMonsterBall.addActionListener(new AddMonsterBall());
+        addTicket.addActionListener(new AddTimeTicket());
+        quitGame.addActionListener(new QuitGame());
+        showAbout.addActionListener(new AboutGame());
+    }
 
     /**
      * Updates internal data according to the model it receives from the controller

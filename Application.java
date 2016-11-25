@@ -7,9 +7,6 @@ import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
 import xonix.dataclasses.TimeTicket;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-
 /**
  * Base class of the application. Is a singleton
  * Manages everything regarding the application and contains the application loop.
@@ -30,11 +27,6 @@ public class Application {
         view = new View();
 
         setupEvents();
-
-
-
-
-
         controller = new Controller(model, view);
     }
 
@@ -103,10 +95,8 @@ public class Application {
      * */
     private void setupEvents()
     {
-        view.addMonsterBall.addActionListener(new AddMonsterBall());
-        view.addTicket.addActionListener(new AddTimeTicket());
+        view.setupDropDowns();
         view.setupKeys();
-
     }
 
     /***
