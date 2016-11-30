@@ -180,4 +180,27 @@ public class Model extends java.util.Observable {
         setChanged();
         notifyObservers(this);
     }
+
+    /**
+     * Removes ticket t from the set of tickets
+     * @param t ticket to remove
+     */
+    public void removeTicket(TimeTicket t)
+    {
+        timeTickets.remove(t);
+        setChanged();
+        notifyObservers(this);
+    }
+
+    /**
+     * Removes MonsterBall b from the set of balls
+     * @param b ball to remove
+     */
+    public void removeMonsterBall(MonsterBall b)
+    {
+        monsterBalls.remove(b);
+        setChanged();
+        notifyObservers(this);
+    }
+
 }

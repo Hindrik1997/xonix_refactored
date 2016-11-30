@@ -1,9 +1,13 @@
 package xonix;
 
+import xonix.Commands.CollisionMonsterball;
+import xonix.Commands.CollisionTimeTicket;
 import xonix.Commands.TimeTickUpdate;
 import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
 import xonix.dataclasses.TimeTicket;
+
+import java.awt.event.ActionEvent;
 
 /**
  * Base class of the application. Is a singleton
@@ -58,20 +62,17 @@ public class Application {
             for (MonsterBall mb : model.getMonsterBalls())
                 if (mb.changeLocation (model.getFieldSquares(), model.getState(), delta))
                 {
-                    model.getState().decLives ();
-                    model.getMonsterBalls().remove (mb);
-                    //Updates the state of the model
-                    model.setState(model.getState());
+                    CollisionMonsterball b = new CollisionMonsterball(mb);
+                    b.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
                     break;
                 }
             model.getCar().changeLocation (model.getFieldSquares(), model.getState(), delta);
             for (TimeTicket tt : model.getTimeTickets())
                 if (tt.contains (model.getCar().getLocation ()))
                 {
-                    model.getState().setClock (model.getState().getClock () + tt.getSeconds ());
-                    model.getTimeTickets().remove (tt);
-                    //Updates the state of the model
-                    model.setState(model.getState());
+                    //Execute action
+                    CollisionTimeTicket c = new CollisionTimeTicket(tt.getSeconds(), tt);
+                    c.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
                     break;
                 }
 

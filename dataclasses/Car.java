@@ -1,7 +1,11 @@
 package xonix.dataclasses;
 
+import xonix.Commands.CarGotNewSquare;
+import xonix.Commands.NewGroupOfSquares;
 import xonix.constants.Constants;
 import xonix.dataclasses.Abstract_classes.MovableColorableSteerableBase;
+
+import java.awt.event.ActionEvent;
 
 /**
  * Represents a car that can be controlled by the player
@@ -53,7 +57,10 @@ public class Car extends MovableColorableSteerableBase
         if (fsnext.getColor () == Constants.SQUARE_COLOR)
             fsnext.setColor (Constants.LINE_COLOR);
         else if (fsnext.getColor () == Constants.PLAYER_COLOR && fsprev.getColor () == Constants.LINE_COLOR)
-            state.addcscore (fss.fillSquares ());
+        {
+            CarGotNewSquare c = new CarGotNewSquare(fss.fillSquares());
+            c.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
+        }
         getLocation ().setLocation (next);
         return true;
     }
