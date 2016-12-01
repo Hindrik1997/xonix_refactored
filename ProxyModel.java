@@ -1,6 +1,8 @@
 package xonix;
 
 import xonix.dataclasses.*;
+import xonix.dataclasses.Interfaces.IState;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -47,7 +49,7 @@ public class ProxyModel implements IModel {
      * Returns the state field of the Model
      * @return state of this instance
      * */
-    public State getState() {
+    public IState getState() {
         return model.getState();
     }
 

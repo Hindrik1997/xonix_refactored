@@ -1,11 +1,12 @@
 package xonix.dataclasses;
 
 import xonix.constants.Constants;
+import xonix.dataclasses.Interfaces.IState;
 
 /**
  * Object representing state of the current game
  * */
-public class State
+public class State implements IState
 {
     private int level;
     private float clock;

@@ -2,6 +2,7 @@ package xonix;
 
 import xonix.constants.Constants;
 import xonix.dataclasses.*;
+import xonix.dataclasses.Interfaces.IState;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -111,8 +112,8 @@ public class Model extends java.util.Observable implements IModel {
      * Returns the state field of the Model
      * @return state of this instance
      * */
-    public State getState() {
-        return state;
+    public IState getState() {
+        return new ProxyState(state);
     }
 
     /**

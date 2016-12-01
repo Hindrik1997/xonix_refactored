@@ -2,6 +2,7 @@ package xonix;
 
 
 import xonix.dataclasses.*;
+import xonix.dataclasses.Interfaces.IState;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -33,7 +34,7 @@ public interface IModel {
      * Returns the state field of the Model
      * @return state of this instance
      * */
-    State getState();
+    IState getState();
 
     /**
      * Returns the car field of the Model
