@@ -1,6 +1,8 @@
 package xonix.viewclasses;
 
+import xonix.IModel;
 import xonix.Model;
+import xonix.ProxyModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,7 +63,7 @@ public class ScoreView extends javax.swing.JPanel
      * Updates the scores from the supplied model
      * @param model input model from which the scores will be taken
      * */
-    public void update (Model model)
+    public void update (IModel model)
     {
         this.level.setText (" Current level: " + model.getState().getLevel ());
         this.time.setText (" Remaining time: " + (int) model.getState().getClock ());

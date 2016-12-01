@@ -35,7 +35,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
      * Intended for use with a Controller instance
      * @see Controller
      * @see Model
-     * @see View#update(Model)
+     * @see View#update(IModel)
      * */
     View ()
     {
@@ -144,10 +144,10 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
      * @see Model
      * @see MapView
      * @see ScoreView
-     * @see View#updateScoreView(Model)
-     * @see View#updateMapView(Model)
+     * @see View#updateScoreView(IModel)
+     * @see View#updateMapView(IModel)
      * */
-    public void update (Model model)
+    public void update (IModel model)
     {
         updateScoreView(model);
         updateMapView(model);
@@ -156,7 +156,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
     /**
      * Updates internal viewScore according to the model it receives from the controller
      * */
-    public void updateScoreView(Model model)
+    public void updateScoreView(IModel model)
     {
         score.update(model);
     }
@@ -164,7 +164,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
     /**
      * Updates internal mapScore according to the model it receives from the controller
      * */
-    public void updateMapView(Model model)
+    public void updateMapView(IModel model)
     {
         map.update(model);
     }
@@ -175,6 +175,6 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
      * */
     @Override
     public void update(Observable observable, Object o) {
-        update((Model)o);
+        update((IModel) o);
     }
 }

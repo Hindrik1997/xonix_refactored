@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Model extends java.util.Observable {
+public class Model extends java.util.Observable implements IModel {
 
     private final FieldSquares fieldSquares;
     private ArrayList<MonsterBall> monsterBalls;
@@ -38,7 +38,7 @@ public class Model extends java.util.Observable {
         createMonsterballs();
         createTimeTickets();
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -59,7 +59,7 @@ public class Model extends java.util.Observable {
                     random.nextFloat () * 100 + 10, 6)
             );
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -80,7 +80,7 @@ public class Model extends java.util.Observable {
                                         Constants.TICKET_COLOR, Constants.TTIME_START, 7, 7)
             );
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -121,7 +121,7 @@ public class Model extends java.util.Observable {
     public void setMonsterBalls(ArrayList<MonsterBall> monsterBalls) {
         this.monsterBalls = monsterBalls;
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -130,7 +130,7 @@ public class Model extends java.util.Observable {
     public void setTimeTickets(ArrayList<TimeTicket> timeTickets) {
         this.timeTickets = timeTickets;
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -139,7 +139,7 @@ public class Model extends java.util.Observable {
     public void setState(State state) {
         this.state = state;
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -156,7 +156,7 @@ public class Model extends java.util.Observable {
     public void setCar(Car car) {
         this.car = car;
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -178,7 +178,7 @@ public class Model extends java.util.Observable {
         car.reset ();
         state.reset ();
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**
@@ -189,7 +189,7 @@ public class Model extends java.util.Observable {
     {
         timeTickets.remove(t);
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new ProxyModel(this));
     }
 
     /**

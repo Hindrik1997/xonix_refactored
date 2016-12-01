@@ -36,7 +36,7 @@ public class Controller {
      * */
     public void updateMapView()
     {
-        view.updateMapView(model);
+        view.updateMapView(new ProxyModel(model));
     }
 
     /**
@@ -44,7 +44,7 @@ public class Controller {
      * */
     public void updateScoreView()
     {
-        view.updateScoreView(model);
+        view.updateScoreView(new ProxyModel(model));
     }
 
     /**
@@ -52,8 +52,8 @@ public class Controller {
      * */
     public void updateView()
     {
-        view.updateMapView(model);
-        view.updateScoreView(model);
+        view.updateMapView(new ProxyModel(model));
+        view.updateScoreView(new ProxyModel(model));
     }
 
     /**

@@ -1,6 +1,8 @@
 package xonix.viewclasses;
 
+import xonix.IModel;
 import xonix.Model;
+import xonix.ProxyModel;
 import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
 import xonix.dataclasses.TimeTicket;
@@ -11,7 +13,7 @@ import xonix.dataclasses.FieldSquare;
  * */
 public class MapView extends javax.swing.JPanel
 {
-    private Model lastSetModel = null;
+    private IModel lastSetModel = null;
 
 
     /**
@@ -82,7 +84,7 @@ public class MapView extends javax.swing.JPanel
      * Updates the model from which the paint function will update
      * @param model model which will be used for painting
      * */
-    public void update (Model model)
+    public void update (IModel model)
     {
         lastSetModel = model;
         this.repaint();
