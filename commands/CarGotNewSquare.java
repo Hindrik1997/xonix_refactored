@@ -1,6 +1,7 @@
-package xonix.Commands;
+package xonix.commands;
 
 import xonix.Application;
+import xonix.dataclasses.State;
 
 import java.awt.event.ActionEvent;
 
@@ -22,6 +23,6 @@ public class CarGotNewSquare extends Command {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        Application.getInstance().getController().getModel().getState().addcscore(score);
+        ((State)(Application.getInstance().getController().getModel().getState())).addcscore(score);
     }
 }

@@ -1,6 +1,7 @@
 package xonix;
 
-import xonix.Commands.*;
+import xonix.commands.*;
+import xonix.modelclasses.IModel;
 import xonix.viewclasses.MapView;
 import xonix.viewclasses.ScoreView;
 
@@ -23,6 +24,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
     private JMenuItem addTicket;
     private JMenuItem quitGame;
     private JMenuItem showAbout;
+    private JMenuItem switchStrategies;
 
 
     private final javax.swing.JPanel all;
@@ -91,6 +93,8 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
         menu.add(addMonsterBall);
         addTicket = new javax.swing.JMenuItem("Add TimeTicket");
         menu.add (addTicket);
+        switchStrategies = new javax.swing.JMenuItem("Switch Monsterball strategies");
+        menu.add(switchStrategies);
         menuBar.add (menu);
         this.setJMenuBar (menuBar);
     }
@@ -128,6 +132,9 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
         map.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_M,0), "mball");
         map.getActionMap().put("mball", new AddMonsterBall());
 
+        map.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,0), "switch");
+        map.getActionMap().put("switch", new SwitchStrategies());
+
     }
 
     void setupDropDowns()
@@ -136,6 +143,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
         addTicket.addActionListener(new AddTimeTicket());
         quitGame.addActionListener(new QuitGame());
         showAbout.addActionListener(new AboutGame());
+        switchStrategies.addActionListener(new SwitchStrategies());
     }
 
     /**

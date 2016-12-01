@@ -1,7 +1,6 @@
 package xonix.dataclasses;
 
-import xonix.Commands.CarGotNewSquare;
-import xonix.Commands.NewGroupOfSquares;
+import xonix.commands.CarGotNewSquare;
 import xonix.constants.Constants;
 import xonix.dataclasses.Abstract_classes.MovableColorableSteerableBase;
 

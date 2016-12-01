@@ -1,6 +1,4 @@
-package xonix.Commands;
-
-import xonix.Application;
+package xonix.commands;
 
 import java.awt.event.ActionEvent;
 

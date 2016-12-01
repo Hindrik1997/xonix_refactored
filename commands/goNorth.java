@@ -1,4 +1,4 @@
-package xonix.Commands;
+package xonix.commands;
 
 import xonix.Application;
 

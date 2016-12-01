@@ -1,4 +1,4 @@
-package xonix;
+package xonix.modelclasses;
 
 
 import xonix.dataclasses.*;

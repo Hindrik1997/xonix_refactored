@@ -1,6 +1,7 @@
 package xonix;
 
 import xonix.dataclasses.*;
+import xonix.modelclasses.ProxyModel;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -93,7 +94,7 @@ public class Controller {
      * @return state of the model in this controller instance
      * */
     public State getState() {
-        return model.getState();
+        return (State)model.getState();
     }
 
     /**

@@ -1,29 +1,28 @@
-package xonix.Commands;
+package xonix.commands;
 
 import xonix.Application;
 import xonix.constants.Constants;
-import xonix.dataclasses.MonsterBall;
+import xonix.dataclasses.TimeTicket;
 
 import java.awt.event.ActionEvent;
 
 /**
- * Adds a monster ball to the game
+ * Adds time ticket to the game
  * */
-public class AddMonsterBall extends Command {
+public class AddTimeTicket extends Command {
 
     /**
-     * Adds monsterball to the game
+     * Adds time ticket to the game
      * */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        Application.getInstance().getController().getModel().getMonsterBalls().add (
-                new MonsterBall(
+        Application.getInstance().getController().getModel().getTimeTickets().add (
+                new TimeTicket(
                         new java.awt.geom.Point2D.Float (
                                 Application.getInstance().getController().getModel().getRandom().nextInt (Constants.SQUARE_LENGTH * Constants.SQUARE_UNITS - 30) + 15,
                                 Application.getInstance().getController().getModel().getRandom().nextInt (Constants.SQUARE_LENGTH * Constants.SQUARE_UNITS - 30) + 15),
-                        Constants.MONSTER_COLOR,
-                        Application.getInstance().getController().getModel().getRandom().nextInt (360),
-                        Application.getInstance().getController().getModel().getRandom().nextFloat () * 100 + 10, 6)
+                        Constants.TICKET_COLOR,
+                        Constants.TTIME_START, 7, 7)
         );
     }
 }

@@ -16,7 +16,7 @@ public class Constants {
     public static final java.awt.Color MONSTER_COLOR = java.awt.Color.orange;
     public static final java.awt.Color TICKET_COLOR = java.awt.Color.green;
     public static final int LEVEL_START = 1;
-    public static final int TTIME_START = 6 - LEVEL_START;
+    public static final int TTIME_START = 36 - LEVEL_START;
     public static final int CLOCK_START = TTIME_START * 2;
     public static final int LIVES_START = 3;
     public static final int CSCORE_START = 0;

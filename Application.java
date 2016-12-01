@@ -1,10 +1,11 @@
 package xonix;
 
-import xonix.Commands.CollisionMonsterball;
-import xonix.Commands.CollisionTimeTicket;
-import xonix.Commands.TimeTickUpdate;
+import xonix.commands.CollisionMonsterball;
+import xonix.commands.CollisionTimeTicket;
+import xonix.commands.TimeTickUpdate;
 import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
+import xonix.dataclasses.State;
 import xonix.dataclasses.TimeTicket;
 
 import java.awt.event.ActionEvent;
@@ -58,15 +59,15 @@ public class Application {
     {
         if ( ! model.getState().isGameOver ())
         {
-            model.getState().addClock ( - delta);
+            (model.getState()).addClock ( - delta);
             for (MonsterBall mb : model.getMonsterBalls())
-                if (mb.changeLocation (model.getFieldSquares(), model.getState(), delta))
+                if (mb.changeLocation (model.getFieldSquares(), (model.getState()), delta))
                 {
                     CollisionMonsterball b = new CollisionMonsterball(mb);
                     b.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
                     break;
                 }
-            model.getCar().changeLocation (model.getFieldSquares(), model.getState(), delta);
+            model.getCar().changeLocation (model.getFieldSquares(), (model.getState()), delta);
             for (TimeTicket tt : model.getTimeTickets())
                 if (tt.contains (model.getCar().getLocation ()))
                 {

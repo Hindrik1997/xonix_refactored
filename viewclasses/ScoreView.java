@@ -1,8 +1,6 @@
 package xonix.viewclasses;
 
-import xonix.IModel;
-import xonix.Model;
-import xonix.ProxyModel;
+import xonix.modelclasses.IModel;
 
 import javax.swing.*;
 import java.awt.*;

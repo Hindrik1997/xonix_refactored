@@ -1,8 +1,6 @@
 package xonix.viewclasses;
 
-import xonix.IModel;
-import xonix.Model;
-import xonix.ProxyModel;
+import xonix.modelclasses.IModel;
 import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
 import xonix.dataclasses.TimeTicket;

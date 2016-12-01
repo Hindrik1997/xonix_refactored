@@ -1,5 +1,8 @@
-package xonix;
+package xonix.modelclasses;
 
+import xonix.Controller;
+import xonix.Model;
+import xonix.View;
 import xonix.dataclasses.*;
 import xonix.dataclasses.Interfaces.IState;
 

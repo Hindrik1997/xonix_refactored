@@ -2,12 +2,18 @@ package xonix.dataclasses;
 
 import xonix.constants.Constants;
 import xonix.dataclasses.Abstract_classes.MovableColorableSteerableBase;
+import xonix.strategy.*;
+
+import java.awt.geom.Point2D;
+import java.util.Random;
 
 /**
  * Class representing a monster in the game
  * */
 public class MonsterBall extends MovableColorableSteerableBase
 {
+
+    private IStrategy strategy;
 
     /**
      * Constructor for the monster ball
@@ -25,6 +31,12 @@ public class MonsterBall extends MovableColorableSteerableBase
         setSpeed (speed);
         setWidth(radius);
         setHeight(radius);
+        rollNewStrategy();
+    }
+
+    @Override
+    public Point2D.Float nextLocation(float delta) {
+        return strategy.nextLocation(delta, this);
     }
 
     /**
@@ -65,4 +77,13 @@ public class MonsterBall extends MovableColorableSteerableBase
     {
         return "loc=" + loc.x + "," + loc.y + " color=[" + color.getRed () + "," + color.getGreen () + "," + color.getBlue () + "]" + " heading=" + heading + " speed=" + speed + " radius=" + getWidth();
     }
+
+    public void rollNewStrategy()
+    {
+        IStrategy[] strategies = { StandardStrategy.getInstance(), ChaseStrategy.getInstance(), HorizontalStrategy.getInstance(), VerticalStrategy.getInstance()};
+
+        int idx = new Random().nextInt(strategies.length);
+        strategy = (strategies[idx]);
+    }
+
 }
