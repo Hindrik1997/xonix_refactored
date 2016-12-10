@@ -4,14 +4,17 @@ import xonix.constants.Constants;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Class representing a field of squares
  * */
-public class FieldSquares
+public class FieldSquares implements Iterable<FieldSquare>
 {
     private final FieldSquare[][] fieldSquares;
     private final Color[][] colors;
+
+    private int x = 0, y = 0;
 
     /**
      * Sets up the field of squares
@@ -93,6 +96,39 @@ public class FieldSquares
             for (int j = 0; j < Constants.SQUARE_LENGTH; j ++)
                 colors[i][j] = fieldSquares[i][j].getColor ();
     }
+
+    @Override
+    public Iterator<FieldSquare> iterator() {
+        return new Iterator<FieldSquare>() {
+            @Override
+            public boolean hasNext() {
+                if(x >= 0 && x < Constants.SQUARE_LENGTH && y >= 0 && y < Constants.SQUARE_LENGTH)
+                {
+                    return true;
+                }
+                else
+                {
+                    x = 0;
+                    y = 0;
+                    return false;
+                }
+            }
+
+            @Override
+            public FieldSquare next() {
+
+                int _x = x, _y = y;
+                if(_x == Constants.SQUARE_LENGTH - 1)
+                {
+                    x = 0;
+                    y++;
+                }
+                x++;
+                return fieldSquares[_x][_y];
+            }
+        };
+    }
+
 
 
     /**

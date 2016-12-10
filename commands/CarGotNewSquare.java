@@ -23,6 +23,6 @@ public class CarGotNewSquare extends Command {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        ((State)(Application.getInstance().getController().getModel().getState())).addcscore(score);
+        ((Application.getInstance().getController().getModel().getState())).addcscore(score);
     }
 }

@@ -40,6 +40,7 @@ public class Model extends java.util.Observable implements IModel {
 
         createMonsterballs();
         createTimeTickets();
+
         setChanged();
         notifyObservers(new ProxyModel(this));
     }

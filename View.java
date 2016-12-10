@@ -28,26 +28,30 @@ public class View extends javax.swing.JFrame implements java.util.Observer {
 
 
     private final javax.swing.JPanel all;
-    private final ScoreView score;
-    private final MapView map;
+    private ScoreView score;
+    private MapView map;
 
     /**
      * Constructor of the View class, sets up the window etc.
      * Call update() with a Model to update the view
      * Intended for use with a Controller instance
+     * @param mapView the used mapview
+     * @param scoreView the used scoreview
+     *
      * @see Controller
      * @see Model
      * @see View#update(IModel)
      * */
-    View ()
+    View (MapView mapView, ScoreView scoreView)
     {
+        this.score = scoreView;
+        this.map = mapView;
+
         this.setTitle ("Xonix Game");
         all = new javax.swing.JPanel();
         all.setLayout (new javax.swing.BoxLayout (all, javax.swing.BoxLayout.Y_AXIS));
-        score = new ScoreView ();
         all.add (score);
         all.setBackground(new Color(0.1f,0.1f,0.1f));
-        map = new MapView ();
         all.setBorder(new javax.swing.border.EmptyBorder(0,40,0,40));
         map.setBackground(new Color(0.1f,0.1f,0.1f));
         all.add (map);

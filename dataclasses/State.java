@@ -1,5 +1,6 @@
 package xonix.dataclasses;
 
+import xonix.Application;
 import xonix.constants.Constants;
 import xonix.dataclasses.Interfaces.IState;
 
@@ -134,7 +135,10 @@ public class State implements IState
     {
         this.cscore = cscore;
         if (cscore > rscore)
+        {
             setLevel (level + 1);
+            Application.getInstance().reset();
+        }
     }
 
     /**

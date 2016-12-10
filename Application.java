@@ -7,6 +7,8 @@ import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
 import xonix.dataclasses.State;
 import xonix.dataclasses.TimeTicket;
+import xonix.viewclasses.MapView;
+import xonix.viewclasses.ScoreView;
 
 import java.awt.event.ActionEvent;
 
@@ -27,7 +29,10 @@ public class Application {
     private Application()
     {
         model = new Model();
-        view = new View();
+
+        ScoreView s = new ScoreView();
+        MapView m = new MapView();
+        view = new View(m,s);
 
         setupEvents();
         controller = new Controller(model, view);
