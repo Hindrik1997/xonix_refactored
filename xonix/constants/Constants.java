@@ -1,7 +1,7 @@
 package xonix.constants;
 
 /**
- * Class containing all application constants
+ * Class containing all application xonix.constants
  * */
 public class Constants {
 

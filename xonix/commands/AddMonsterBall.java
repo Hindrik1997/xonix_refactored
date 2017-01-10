@@ -1,6 +1,8 @@
 package xonix.commands;
 
 import xonix.Application;
+import xonix.Controller;
+import xonix.Sounds;
 import xonix.constants.Constants;
 import xonix.dataclasses.MonsterBall;
 

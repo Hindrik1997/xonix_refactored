@@ -43,7 +43,7 @@ public class State implements IState
     }
 
     /**
-     * Sets current level based on the int and some constants
+     * Sets current level based on the int and some xonix.constants
      * @see Constants
      * @param level int indicating the new level
      * */

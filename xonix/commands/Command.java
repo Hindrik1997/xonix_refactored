@@ -11,7 +11,7 @@ public abstract class Command extends AbstractAction implements ActionListener {
 
     /**
      * Executes the command
-     * Must be implemented by commands
+     * Must be implemented by xonix.commands
      * */
     @Override
     public abstract void actionPerformed(ActionEvent actionEvent);

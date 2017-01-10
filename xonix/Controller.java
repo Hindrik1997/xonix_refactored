@@ -5,6 +5,10 @@ import xonix.modelclasses.ProxyModel;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.LineEvent.Type;
 
 
 /**
@@ -25,7 +29,7 @@ public class Controller {
      * @see Model
      * @see View
      * */
-    public Controller(Model model, View view)
+    Controller(Model model, View view)
     {
         this.model = model;
         this.view = view;
@@ -43,7 +47,7 @@ public class Controller {
     /**
      * Updates only the scoreView of the View attached to the controller
      * */
-    public void updateScoreView()
+    void updateScoreView()
     {
         view.updateScoreView(new ProxyModel(model));
     }
@@ -60,7 +64,7 @@ public class Controller {
     /**
      * Resets the model the controller owns
      */
-    public void resetModel()
+    void resetModel()
     {
         model.reset ();
     }
@@ -128,4 +132,44 @@ public class Controller {
         return model;
     }
 
+
+    /**
+     * Implements a way to play audio files
+     * @param selectedClip the clip to play
+     * */
+    public static void playClip(Sounds selectedClip) throws IOException,
+            UnsupportedAudioFileException, LineUnavailableException, InterruptedException {
+        class AudioListener implements LineListener {
+            private boolean done = false;
+            @Override public synchronized void update(LineEvent event) {
+                Type eventType = event.getType();
+                if (eventType == Type.STOP || eventType == Type.CLOSE) {
+                    done = true;
+                    notifyAll();
+                }
+            }
+            private synchronized void waitUntilDone() throws InterruptedException {
+                while (!done) { wait(); }
+            }
+        }
+
+
+        new Thread(() -> {
+            AudioListener listener = new AudioListener();
+            File f = new File(selectedClip.getClip());
+            try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(f)) {
+                DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
+                Clip clip = (Clip)AudioSystem.getLine(info);
+                clip.open(audioInputStream);
+                try {
+                    clip.start();
+                    listener.waitUntilDone();
+                } finally {
+                    clip.close();
+                }
+            } catch (UnsupportedAudioFileException | IOException | InterruptedException | LineUnavailableException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 }
