@@ -1,7 +1,7 @@
 package xonix;
 
 public enum Sounds {
-    TimeTicketCollision("bleep.wav"),
+    TimeTicketCollision("powerup2.wav"),
     MonsterCollision("bleep.wav"),
     AddedScore("bleep.wav"),;
 
