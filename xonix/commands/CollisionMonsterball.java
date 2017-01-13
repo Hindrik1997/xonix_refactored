@@ -23,7 +23,7 @@ public class CollisionMonsterball extends Command {
     public void actionPerformed(ActionEvent actionEvent) {
 
         try {
-            Controller.playClip(Sounds.MonsterCollision);
+            Sounds.MonsterCollision.play();
         } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
             e.printStackTrace();
         }

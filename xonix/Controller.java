@@ -133,43 +133,5 @@ public class Controller {
     }
 
 
-    /**
-     * Implements a way to play audio files
-     * @param selectedClip the clip to play
-     * */
-    public static void playClip(Sounds selectedClip) throws IOException,
-            UnsupportedAudioFileException, LineUnavailableException, InterruptedException {
-        class AudioListener implements LineListener {
-            private boolean done = false;
-            @Override public synchronized void update(LineEvent event) {
-                Type eventType = event.getType();
-                if (eventType == Type.STOP || eventType == Type.CLOSE) {
-                    done = true;
-                    notifyAll();
-                }
-            }
-            private synchronized void waitUntilDone() throws InterruptedException {
-                while (!done) { wait(); }
-            }
-        }
 
-
-        new Thread(() -> {
-            AudioListener listener = new AudioListener();
-            File f = new File(selectedClip.getClip());
-            try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(f)) {
-                DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
-                Clip clip = (Clip)AudioSystem.getLine(info);
-                clip.open(audioInputStream);
-                try {
-                    clip.start();
-                    listener.waitUntilDone();
-                } finally {
-                    clip.close();
-                }
-            } catch (UnsupportedAudioFileException | IOException | InterruptedException | LineUnavailableException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
 }

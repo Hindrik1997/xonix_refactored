@@ -25,7 +25,7 @@ public class CollisionTimeTicket extends Command {
     public void actionPerformed(ActionEvent actionEvent)
     {
         try {
-            Controller.playClip(Sounds.TimeTicketCollision);
+            Sounds.TimeTicketCollision.play();
         } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
             e.printStackTrace();
         }

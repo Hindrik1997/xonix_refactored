@@ -30,7 +30,7 @@ public class CarGotNewSquare extends Command {
     public void actionPerformed(ActionEvent actionEvent) {
 
         try {
-            Controller.playClip(Sounds.AddedScore);
+            Sounds.AddedScore.play();
         } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
             e.printStackTrace();
         }
